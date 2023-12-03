@@ -1,5 +1,6 @@
 package com.kitoko.countries.network
 
+import com.kitoko.countries.model.Country
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
@@ -14,15 +15,15 @@ private val retrofit = Retrofit.Builder()
 /**
  * The following interface defines how retrofit will be talking to the server using http
  */
-interface CountriesApiService{
+interface CountriesApiService {
     @GET("all")
-    fun getAll():String
+    suspend fun getAll(): List<Country>
 }
 
 /**
  * The following defines a public and unique retrofit object that will be used oll over the app
  */
-object CountriesApi{
+object CountriesApi {
 
     val retrofitService: CountriesApiService by lazy {
         retrofit.create(CountriesApiService::class.java)
