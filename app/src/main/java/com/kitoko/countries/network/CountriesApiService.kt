@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://restcountries.com/v3.1"
+private const val BASE_URL = "https://restcountries.com/v3.1/"
 
 // Builds and create a retrofit object
 private val retrofit = Retrofit.Builder()
