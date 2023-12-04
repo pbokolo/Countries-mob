@@ -5,18 +5,17 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 
 private const val BASE_URL = "https://restcountries.com/v3.1/"
-private const val URL = "https://restcountries.com/v3.1/name/"
 
 // Builds and create a retrofit object
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(ScalarsConverterFactory.create())
-    .baseUrl(URL).build()
+    .baseUrl(BASE_URL).build()
 
 /**
  * The following interface defines how retrofit will be talking to the server using http
  */
 interface CountriesApiService {
-    @GET("drc")
+    @GET("all")
     suspend fun getAll(): String
 }
 
