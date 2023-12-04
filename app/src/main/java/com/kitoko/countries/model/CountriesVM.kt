@@ -20,10 +20,13 @@ class CountriesVM: ViewModel() {
 
         viewModelScope.launch{
             try {
-                _list.value = CountriesApi.retrofitService.getAll()
-                _status.value = "Succes: ${_list.value!!.size} countries retrieved"
+//                _list.value = CountriesApi.retrofitService.getAll()
+                val res = CountriesApi.retrofitService.getAll()
+                _status.value = res
             }catch (e: Exception){
                 _status.value = "Error: ${e.message}"
+                e.printStackTrace()
+
             }
         }
 

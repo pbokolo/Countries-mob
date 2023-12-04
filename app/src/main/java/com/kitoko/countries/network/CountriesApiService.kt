@@ -1,23 +1,23 @@
 package com.kitoko.countries.network
 
-import com.kitoko.countries.model.Country
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 
 private const val BASE_URL = "https://restcountries.com/v3.1/"
+private const val URL = "https://restcountries.com/v3.1/name/"
 
 // Builds and create a retrofit object
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(ScalarsConverterFactory.create())
-    .baseUrl(BASE_URL).build()
+    .baseUrl(URL).build()
 
 /**
  * The following interface defines how retrofit will be talking to the server using http
  */
 interface CountriesApiService {
-    @GET("all")
-    suspend fun getAll(): List<Country>
+    @GET("drc")
+    suspend fun getAll(): String
 }
 
 /**
